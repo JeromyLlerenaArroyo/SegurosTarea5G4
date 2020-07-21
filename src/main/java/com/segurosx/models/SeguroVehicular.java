@@ -2,6 +2,7 @@ package com.segurosx.models;
 
 import com.segurosx.models.patterns.CoberturaBasicaVehicular;
 import com.segurosx.models.patterns.CoberturaPorChoqueDecorator;
+import com.segurosx.models.patterns.CoberturaPorRoboDecorator;
 import com.segurosx.models.patterns.CoberturaTodoRiesgoDecorator;
 
 public class SeguroVehicular extends Seguro implements INivelRiesgo {
@@ -34,10 +35,20 @@ public class SeguroVehicular extends Seguro implements INivelRiesgo {
         return "Seg. Vehicular Numero: " + this.numero + " con riesgo: " + this.nivelRiesgo;
     }
 
-    public void calcularCobeturaVehicular() {
+    public void calcularCobeturaVehicular(String entradaChoque, String entradaRobo, String entradaTodo ) {
+        this.cobertura = new CoberturaBasicaVehicular();
+        if ( entradaChoque.equals("S") ) {
+            this.cobertura = new CoberturaPorChoqueDecorator(
+                            this.cobertura);
+        }
 
-        this.cobertura = new CoberturaTodoRiesgoDecorator(
-                            new CoberturaBasicaVehicular());
+        if ( entradaRobo.equals("S") ) {
+            this.cobertura = new CoberturaPorRoboDecorator(this.cobertura);
+        }
+
+        if ( entradaTodo.equals("S")) {
+            this.cobertura = new CoberturaTodoRiesgoDecorator(this.cobertura);
+        }
         cobertura.calculaCobertura();        
     }
 }
