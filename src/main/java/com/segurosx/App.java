@@ -9,6 +9,8 @@ import com.segurosx.models.patterns.PolizaAdapter;
 //import com.segurosx.models.patterns.PolizaAdapter2;
 import com.segurosx.models.patterns.PolizaAdapter2;
 
+import com.segurosx.models.VentaSeguro;
+
 /**
  * HRCS
  *
@@ -43,6 +45,9 @@ public class App
         System.out.println( exportable2.aXML() +"\n");
 
 
+        VentaSeguro venta = new VentaSeguro();
+
+        venta.mostrarInspeccionTotal();
    }
 }
 

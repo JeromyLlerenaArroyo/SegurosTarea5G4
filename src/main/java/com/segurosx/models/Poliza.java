@@ -59,4 +59,6 @@ public class Poliza {
 
         System.out.println(armarSalidaTexto());
     }
+
+    
 }
