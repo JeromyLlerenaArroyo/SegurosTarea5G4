@@ -2,12 +2,14 @@ package com.segurosx;
 
 import com.segurosx.models.Cliente;
 import com.segurosx.models.IExportable;
+import com.segurosx.models.IExportableJSON;
 import com.segurosx.models.Poliza;
 import com.segurosx.models.SeguroTarjeta;
 import com.segurosx.models.SeguroVehicular;
 import com.segurosx.models.patterns.PolizaAdapter;
 //import com.segurosx.models.patterns.PolizaAdapter2;
 import com.segurosx.models.patterns.PolizaAdapter2;
+import com.segurosx.models.patterns.PolizaJSONAdapter;
 
 /**
  * HRCS
@@ -42,7 +44,8 @@ public class App
         IExportable exportable2 = new PolizaAdapter2(76656, "Juan Perez", "Juan Pablo");
         System.out.println( exportable2.aXML() +"\n");
 
-
+        IExportableJSON exportable3 = new PolizaJSONAdapter(seguro2.getPoliza());
+        System.out.println( exportable3.aJSON() +"\n");
    }
 }
 

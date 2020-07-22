@@ -11,6 +11,10 @@ public class PolizaAdapter implements IExportable {
         this.poliza = poliza;
     }
 
+    public Poliza getPoliza() {
+        return poliza;
+    }
+
     @Override
     public String aXML() {
         
